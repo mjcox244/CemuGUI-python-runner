@@ -3,11 +3,10 @@ from zipfile import ZipFile
 import shutil
 
 latest_cemu="1.22.5"
-try:
-	os.remove("CemuGUI-python-runner-main")
-	os.remove("cemu_" + latest_cemu)
-except:
-	print("haha perms go BRRRRR\n\n\n")
+
+
+
+
 	
 
 
@@ -20,7 +19,8 @@ with ZipFile('CemuGUI-python-runner-main.zip', 'r') as zipObj:
 	zipObj.extractall()
 os.remove("CemuGUI-python-runner-main.zip")
 cmd = "xcopy CemuGUI-python-runner-main " + os.getcwd() + "/s /Y /Q"
-os.system(cmd)
+os.system(cmd
+os.system("rmdir CemuGUI-python-runner-main"))
 
 #update / dowmload cemu
 wget.download("https://cemu.info/releases/cemu_"+ latest_cemu +".zip")
@@ -32,15 +32,8 @@ try:
 	os.system('cmd /c "mkdir Cemu"')
 except:
 	print("")
-os.system('cmd /c "xcopy cemu_1.22.5 Cemu /s /Y /Q"')
-time.sleep(1)
-
-
-
-
-#THIS IS THE GITHUB VERSION
-
-
+os.system('cmd /c "xcopy cemu_1.22.5 Cemu /s /Y /Q /K"')
+os.system("rmdir cemu_" + latest_cemu)
 
 
 
@@ -52,6 +45,6 @@ else:
 	wget.download("https://download1653.mediafire.com/dl74cd2ahxmg/qfegbxxrda3i10r/CemuGUI+2.0+Beta.zip")
 	with ZipFile("CemuGUI 2.0 Beta.zip", 'r') as zipObj:
 		zipObj.extractall("")
-	print("so setup done isnt being writen then")
+	os.remove("CemuGUI 2.0 Beta.zip")
 	with open("Setup-done", 'w') as file_object:
 		file_object.write("Setup is done!")
