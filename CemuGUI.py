@@ -19,7 +19,6 @@ with ZipFile('CemuGUI-python-runner-main.zip', 'r') as zipObj:
 	zipObj.extractall()
 os.remove("CemuGUI-python-runner-main.zip")
 cmd = "xcopy CemuGUI-python-runner-main " + os.getcwd() + "/s /Y /Q"
-os.system(cmd
 os.system("rmdir CemuGUI-python-runner-main")
 
 #update / dowmload cemu
